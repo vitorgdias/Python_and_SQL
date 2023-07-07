@@ -8,7 +8,7 @@ TABLE_NAME = 'customers'                        # Define the table name
 
 connection = sqlite3.connect(DB_FILE)           # Can be named as con, receive the full path of the file
 cursor = connection.cursor()                    # Execute queries
-
+# Create the table
 cursor.execute(
     f'CREATE TABLE IF NOT EXISTS {TABLE_NAME}'  
     '('
@@ -17,9 +17,15 @@ cursor.execute(
     'weight REAL'
     ')'
 )
-connection.commit
+connection.commit()
+# Insert values to table columms
+cursor.execute(
+    f'INSERT INTO {TABLE_NAME} (id, name, weight) '
+    'VALUES (NULL, "Vitor Galves", 80)'
+)
+connection.commit()
 
-# SQL
+# Finish SQL
 
 cursor.close()                                  # Cursor and Connection need to be closed
 connection.close()
