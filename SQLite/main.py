@@ -87,10 +87,9 @@ cursor.executemany(sql, (
     )
 )
 connection.commit()
+if __name__ == '__main__':
+    print(sql)
 # Finish SQL
 # Cursor and Connection need to be closed
 cursor.close()                                  
 connection.close()
-
-if __name__ == '__main__':
-    print(sql)
